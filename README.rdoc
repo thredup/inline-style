@@ -121,6 +121,9 @@ If using ActionMailer (which wraps mail):
 
 nokogiri && (css_parser || maca-fork-csspool)
 
+libcroco
+  OS X
+  -> brew install libcroco
 
 == Install:
 

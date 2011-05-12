@@ -79,7 +79,7 @@ class InlineStyle
 
   # Returns parsed CSS
   def extract_css
-    @dom.css('style, link[rel=stylesheet]').collect do |node|
+    css = @dom.css('style, link[rel=stylesheet]').collect do |node|
       next unless /^$|screen|all/ === node['media'].to_s
       node.remove
 
@@ -90,7 +90,12 @@ class InlineStyle
         open(uri).read
       end
     end.join("\n")
+
+    css.gsub!(/\}[^{}]*\:[^{}]*\{[^{}]*\}/, "}\n /* HOVER */\n")
+    css.gsub!(/\}[^{}]*\:[^{}]*\{[^{}]*\}/, "}\n /* HOVER */\n")
+    css
   end
+
 
   def parse_css
     CSSParser.new extract_css 
