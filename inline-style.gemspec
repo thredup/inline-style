@@ -22,6 +22,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rack'
   s.add_development_dependency 'rspec-core'
   s.add_development_dependency 'mail'
+  s.add_development_dependency 'iconv'
 
   s.add_dependency 'nokogiri'
   s.add_dependency 'css_parser'
